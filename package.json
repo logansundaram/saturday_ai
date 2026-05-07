@@ -1,0 +1,17 @@
+{
+  "name": "saturday-ai",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/desktop",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run dev:desktop\" \"npm run dev:api\"",
+    "dev:desktop": "npm run dev --workspace=apps/desktop",
+    "dev:api": "apps\\api\\.venv\\Scripts\\uvicorn app.main:app --reload --port 8000"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
